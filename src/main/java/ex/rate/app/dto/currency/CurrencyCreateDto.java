@@ -12,10 +12,10 @@ import java.time.LocalDate;
 public class CurrencyCreateDto {
 
     @JsonProperty("r030")
-    private String reference;
+    private Integer reference;
 
     @JsonProperty("txt")
-    private String title;
+    private String name;
 
     @JsonProperty("rate")
     private Double rate;

@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,6 +18,7 @@ import lombok.ToString;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "currency")
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,11 +29,11 @@ public class Currency {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "r030")
-    private String reference;
+    @Column(name = "reference")
+    private Integer reference;
 
-    @Column(name = "txt")
-    private String title;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "rate")
     private Double rate;
@@ -51,20 +53,20 @@ public class Currency {
         this.id = id;
     }
 
-    public String getReference() {
+    public Integer getReference() {
         return reference;
     }
 
-    public void setReference(String reference) {
+    public void setReference(Integer reference) {
         this.reference = reference;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String title) {
+        this.name = title;
     }
 
     public Double getRate() {

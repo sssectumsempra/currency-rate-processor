@@ -12,10 +12,10 @@ import java.time.LocalDate;
 public class CurrencyUpdateDto {
 
     @JsonProperty("r030")
-    private JsonNullable<String> reference;
+    private JsonNullable<Integer> reference;
 
     @JsonProperty("txt")
-    private JsonNullable<String> title;
+    private JsonNullable<String> name;
 
     @JsonProperty("rate")
     private JsonNullable<Double> rate;

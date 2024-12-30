@@ -7,6 +7,7 @@ import ex.rate.app.dto.currency.CurrencyUpdateDto;
 import ex.rate.app.mapper.jsonnullable.JsonNullableMapper;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
@@ -32,8 +33,8 @@ public abstract class CurrencyMapper {
     public abstract CurrencyDto map(Currency currency);
 
     public void update(CurrencyUpdateDto dto, @MappingTarget Currency currency) {
-        updateFields(dto.getUniqueReferenceNumber(), currency::setUniqueReferenceNumber);
-        updateFields(dto.getTitle(), currency::setTitle);
+        updateFields(dto.getReference(), currency::setReference);
+        updateFields(dto.getName(), currency::setName);
         updateFields(dto.getRate(), currency::setRate);
         updateFields(dto.getCurrencyCode(), currency::setCurrencyCode);
         updateFields(dto.getExchangeDate(), currency::setExchangeDate);
