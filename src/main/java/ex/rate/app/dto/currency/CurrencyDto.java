@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class CurrencyDto {
 
     @JsonProperty("r030")
-    private String uniqueReferenceNumber;
+    private String reference;
 
     @JsonProperty("txt")
     private String title;

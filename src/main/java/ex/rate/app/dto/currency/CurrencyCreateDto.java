@@ -2,7 +2,6 @@ package ex.rate.app.dto.currency;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +12,7 @@ import java.time.LocalDate;
 public class CurrencyCreateDto {
 
     @JsonProperty("r030")
-    private String uniqueReferenceNumber;
+    private String reference;
 
     @JsonProperty("txt")
     private String title;
