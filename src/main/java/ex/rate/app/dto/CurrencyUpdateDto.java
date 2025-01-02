@@ -1,4 +1,4 @@
-package ex.rate.app.dto.currency;
+package ex.rate.app.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

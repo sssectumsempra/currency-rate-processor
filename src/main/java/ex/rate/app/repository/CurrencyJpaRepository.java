@@ -1,6 +1,6 @@
 package ex.rate.app.repository;
 
-import ex.rate.app.domain.entity.Currency;
+import ex.rate.app.entity.Currency;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,4 +1,4 @@
-package ex.rate.app.domain.entity;
+package ex.rate.app.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonValue;

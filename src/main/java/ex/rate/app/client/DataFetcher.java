@@ -1,13 +1,11 @@
 package ex.rate.app.client;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ex.rate.app.domain.entity.Currency;
-import ex.rate.app.dto.currency.CurrencyCreateDto;
-import ex.rate.app.dto.currency.CurrencyDto;
+import ex.rate.app.entity.Currency;
+import ex.rate.app.dto.CurrencyCreateDto;
 import ex.rate.app.mapper.currency.CurrencyMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
