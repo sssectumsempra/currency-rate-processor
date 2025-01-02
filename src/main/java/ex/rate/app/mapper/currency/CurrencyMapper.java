@@ -1,11 +1,10 @@
 package ex.rate.app.mapper.currency;
 
-import ex.rate.app.domain.entity.Currency;
-import ex.rate.app.dto.currency.CurrencyCreateDto;
-import ex.rate.app.dto.currency.CurrencyDto;
-import ex.rate.app.dto.currency.CurrencyUpdateDto;
+import ex.rate.app.entity.Currency;
+import ex.rate.app.dto.CurrencyCreateDto;
+import ex.rate.app.dto.CurrencyDto;
+import ex.rate.app.dto.CurrencyUpdateDto;
 import ex.rate.app.mapper.jsonnullable.JsonNullableMapper;
-import lombok.RequiredArgsConstructor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;

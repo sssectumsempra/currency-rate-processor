@@ -1,8 +1,7 @@
-package ex.rate.app.controller.currency;
+package ex.rate.app.controller;
 
-import ex.rate.app.client.DataFetcher;
-import ex.rate.app.domain.entity.Currency;
-import ex.rate.app.dto.currency.CurrencyDto;
+import ex.rate.app.dto.CurrencyDto;
+import ex.rate.app.entity.Currency;
 import ex.rate.app.mapper.currency.CurrencyMapper;
 import ex.rate.app.repository.CurrencyJpaRepository;
 import lombok.RequiredArgsConstructor;
