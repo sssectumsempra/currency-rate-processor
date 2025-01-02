@@ -1,6 +1,9 @@
 package ex.rate.app.client;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ex.rate.app.domain.entity.Currency;
+import ex.rate.app.dto.currency.CurrencyCreateDto;
+import ex.rate.app.dto.currency.CurrencyDto;
+import ex.rate.app.mapper.currency.CurrencyMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +23,8 @@ public class DataFetcher {
 
     private final ObjectMapper objectMapper;
 
+    private final CurrencyMapper mapper;
+
     public List<Currency> fetchDataFromJson() {
         try {
             HttpClient httpClient = HttpClient.newHttpClient();
@@ -33,9 +38,9 @@ public class DataFetcher {
 
             String jsonResponse = response.body();
 
-            List<Currency> list = Arrays.stream(objectMapper.readValue(jsonResponse.getBytes(), Currency[].class)).toList();
+            List<CurrencyCreateDto> list = Arrays.stream(objectMapper.readValue(jsonResponse.getBytes(), CurrencyCreateDto[].class)).toList();
 
-            return list;
+            return list.stream().map(mapper::map).toList();
         } catch (Exception e) {
             throw new RuntimeException("Failed to fetch or parse JSON", e);
         }

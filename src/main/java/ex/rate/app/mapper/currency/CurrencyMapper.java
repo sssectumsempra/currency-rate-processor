@@ -30,6 +30,11 @@ public abstract class CurrencyMapper {
 
     public abstract Currency map(CurrencyCreateDto dto);
 
+    @Mapping(target = "reference", source = "reference")
+    @Mapping(target = "name", source = "name")
+    @Mapping(target = "rate", source = "rate")
+    @Mapping(target = "currencyCode", source = "currencyCode")
+    @Mapping(target = "exchangeDate", source = "exchangeDate")
     public abstract CurrencyDto map(Currency currency);
 
     public void update(CurrencyUpdateDto dto, @MappingTarget Currency currency) {

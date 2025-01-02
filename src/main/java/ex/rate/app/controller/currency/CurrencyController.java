@@ -22,7 +22,7 @@ public class CurrencyController {
 
     private final CurrencyMapper mapper;
 
-    @GetMapping(value = "welcome")
+    @GetMapping(value = "work")
     public String getWelcome(){
         return "server is working . . .";
     }
