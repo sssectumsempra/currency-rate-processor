@@ -1,5 +1,5 @@
 
-#### REST API for an ExchangeRate Application
+## REST API for an ExchangeRate Application
 
 There is an application that provides the user with
 a set of functions for obtaining information about
