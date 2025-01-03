@@ -6,6 +6,7 @@ import ex.rate.app.mapper.currency.CurrencyMapper;
 import ex.rate.app.repository.CurrencyJpaRepository;
 import ex.rate.app.service.CurrencyService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,18 +21,13 @@ public class CurrencyController {
 
     private final CurrencyService service;
 
-    @GetMapping(value = "work")
-    public String getWelcome(){
-        return "server is working . . .";
-    }
-
     @GetMapping("{code}")
-    public CurrencyDto gutCurrency(@PathVariable("code") String currencyCode) {
-        return service.findByCurrencyCode(currencyCode);
+    public ResponseEntity<CurrencyDto> gutCurrency(@PathVariable("code") String currencyCode) {
+        return ResponseEntity.ok(service.findByCurrencyCode(currencyCode));
     }
 
-    @GetMapping("list")
-    public List<CurrencyDto> getCurrencies() {
-        return service.findAll();
+    @GetMapping(value = "list", produces = "application/json")
+    public ResponseEntity<List<CurrencyDto>> getCurrencies() {
+        return ResponseEntity.ok(service.findAll());
     }
 }
