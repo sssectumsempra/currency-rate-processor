@@ -9,4 +9,6 @@ public interface CurrencyService {
     CurrencyDto findByCurrencyCode(String currencyCode);
 
     List<CurrencyDto> findAll();
+
+
 }
