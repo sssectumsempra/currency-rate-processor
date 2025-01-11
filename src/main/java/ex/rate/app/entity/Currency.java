@@ -19,6 +19,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Currency {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

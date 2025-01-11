@@ -14,6 +14,7 @@ import org.mapstruct.ReportingPolicy;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 @Mapper(

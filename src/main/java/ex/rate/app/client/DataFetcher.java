@@ -21,6 +21,7 @@ import static ex.rate.app.client.constant.ClientConstant.JSON_URL;
 @RequiredArgsConstructor
 @Slf4j
 public class DataFetcher {
+
     private final HttpClient httpClient;
 
     private final ObjectMapper objectMapper;
@@ -28,14 +29,14 @@ public class DataFetcher {
     private final CurrencyMapper mapper;
 
     public List<Currency> fetchDataFromJson() {
-        log.info("Getting http request by URL...");
+        log.info("Getting http request by URL.");
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(JSON_URL))
                 .GET()
                 .build();
         HttpResponse<String> httpResponse;
         try {
-            log.info("Sending http request by URL...");
+            log.info("Sending http request by URL.");
             httpResponse = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
             String jsonResponse = httpResponse.body();
@@ -44,6 +45,7 @@ public class DataFetcher {
 
             return list.stream().map(mapper::map).toList();
         } catch (IOException | InterruptedException e) {
+            log.error("Exception occurred while sending http request", e);
             throw new RuntimeException("Failed to fetch or parse JSON", e);
         }
     }
