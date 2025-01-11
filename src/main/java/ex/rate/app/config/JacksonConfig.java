@@ -7,8 +7,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
+import java.net.http.HttpClient;
+
 @Configuration
 public class JacksonConfig {
+
+    @Bean
+    public HttpClient httpClient() {
+        return HttpClient.newBuilder().build();
+    }
 
     @Bean
     public Jackson2ObjectMapperBuilder objectMapperBuilder() {

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "api/")
+@RequestMapping(value = "${application.endpoint.controller.root}")
 @RequiredArgsConstructor
 public class CurrencyController {
 
@@ -26,7 +26,7 @@ public class CurrencyController {
         return ResponseEntity.ok(service.findByCurrencyCode(currencyCode));
     }
 
-    @GetMapping(value = "list", produces = "application/json")
+    @GetMapping(value = "currencies", produces = "application/json")
     public ResponseEntity<List<CurrencyDto>> getCurrencies() {
         return ResponseEntity.ok(service.findAll());
     }
