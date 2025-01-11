@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface CurrencyJpaRepository extends JpaRepository<Currency, Long> {
-
     @Query("select c from Currency c where c.currencyCode = :cc")
     Optional<Currency> findByCurrencyCode(@Param("cc") String currencyCode);
 }
