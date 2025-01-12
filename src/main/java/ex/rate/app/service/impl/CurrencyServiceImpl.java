@@ -1,10 +1,11 @@
-package ex.rate.app.service;
+package ex.rate.app.service.impl;
 
 import ex.rate.app.dto.CurrencyDto;
 import ex.rate.app.entity.Currency;
 import ex.rate.app.exception.CurrencyNotFoundException;
 import ex.rate.app.mapper.currency.CurrencyMapper;
-import ex.rate.app.repository.CurrencyJpaRepository;
+import ex.rate.app.service.port.in.CurrencyService;
+import ex.rate.app.service.port.out.CurrencyPersistencePort;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,13 +18,13 @@ import java.util.Optional;
 @Slf4j
 public class CurrencyServiceImpl implements CurrencyService {
 
-    private final CurrencyJpaRepository repository;
+    private final CurrencyPersistencePort persistencePort;
 
     private final CurrencyMapper mapper;
 
     @Override
     public CurrencyDto findByCurrencyCode(String currencyCode) {
-        Optional<Currency> currency = repository.findByCurrencyCode(currencyCode);
+        Optional<Currency> currency = persistencePort.findByCurrencyCode(currencyCode);
         if (currency.isEmpty()) {
             log.warn("No currency found for code: {}", currencyCode);
             throw new CurrencyNotFoundException("Currency not found for code: " + currencyCode);
@@ -33,7 +34,7 @@ public class CurrencyServiceImpl implements CurrencyService {
 
     @Override
     public List<CurrencyDto> findAll() {
-        List<CurrencyDto> currencyDtoList = repository.findAll().stream()
+        List<CurrencyDto> currencyDtoList = persistencePort.findAll().stream()
                 .map(mapper::map)
                 .toList();
         if (currencyDtoList.isEmpty()) {
